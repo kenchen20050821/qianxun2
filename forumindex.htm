@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%if pagetitle=="首页"%>
+        <title>{config.forumtitle} {config.seotitle} - Powered by Discuz!NT</title>
+     <%/if%>
+</head>
+<body>
+		           <%loop (ForumHotItemInfo) forumhotiteminfo forumhotconfiginfo.ForumHotCollection%>
+			            <%if {forumhotiteminfo.datatype}=="pictures"%>
+                     name: {forumhotiteminfo.name}<br/>
+{ForumHots.HotImagesArray(forumhotiteminfo)}<br/>
+Length:{forumhotiteminfo.topictitlelength}<br/> <br/> <br/> 
+                  <%/if%>
+               <%/loop%>
+               <%loop (ForumHotItemInfo) forumhotiteminfo1 forumhotconfiginfo.ForumHotCollection%>
+  				            <%if {forumhotiteminfo1.id}==1 && {forumhotiteminfo1.enabled}==1%>
+				               1.{forumhotiteminfo1.name}
+				            <%/if%>
+				            <%if {forumhotiteminfo1.id}==2&& {forumhotiteminfo1.enabled}==1%>
+				                2.{forumhotiteminfo1.name}
+				            <%/if%>
+			         <%/loop%>
+                <%loop (ForumHotItemInfo) forumhotiteminfo2 forumhotconfiginfo.ForumHotCollection%>
+                <%if ({forumhotiteminfo2.id}==1||{forumhotiteminfo2.id}==2) && {forumhotiteminfo2.enabled}==1%>
+			                <%if {forumhotiteminfo2.datatype}=="topics"%>
+			                <%loop hottopic ForumHots.GetTopicList(forumhotiteminfo2)%>
+                        <%set (string){topicsname2} = Utils.RemoveHtml(hottopic["title"].ToString().Trim())%>
+                        <%set (string){topicsname} = forumhotiteminfo2.Topictitlelength>0?Utils.GetSubString(Utils.RemoveHtml(hottopic["title"].ToString().Trim()),forumhotiteminfo2.Topictitlelength*2,""):""%>
+                        <%set {aspxrewriteurl} = this.ShowTopicAspxRewrite({hottopic[tid]},0)%>
+					              <%set (string){aspxrewriteurl1} = this.ShowForumAspxRewrite({hottopic[fid]},0)%>
+					              <%if {hottopic[_id]}==1%>
+					              <ul class="hotlist">
+					              <%/if%>
+					              <a href="{forumurl}{aspxrewriteurl}" target="_blank"  title="{topicsname2}">{hottopic[_id]}{topicsname}</a>
+					              <%if {hottopic[_id]}==13%>
+					              </ul>
+					              <%/if%>
+					            <%/loop%>
+					            <%/if%>
+					   <%/if%>
+					   <%/loop%>
+					   
+					   <%loop (IndexPageForumInfo) forum forumlist%>
+					   <%if {forum.istrade}!=1%>
+               <%set (string){lastpost}=ForumUtils.ConvertDateTime({forum.lastpost})%>
+               <%set {aspxrewriteurl} = this.ShowTopicAspxRewrite({forum.lasttid},0)%>
+             <%if {forum.layer}==1%>{forum.name} <a href="{aspxrewriteurl}"><%getsubstring({forum.lasttitle,35,"..."})%></a><br/><%/if%>
+             <%/if%>
+					   <%/loop%>
+</body>
+</html>

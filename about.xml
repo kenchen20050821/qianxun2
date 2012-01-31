@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<about>
+<template name="TEST模板"
+  author="Siemonday"
+  createdate = "2012-8-5"
+  ver="3.5"
+  fordntver="3.5"
+  copyright="Copyright 2012 Comsenz Inc." 
+  width="750" />
+</about>
