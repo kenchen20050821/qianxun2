@@ -1,0 +1,73 @@
+﻿<div id="footer">
+  <div class="wrap" id="footlinks">
+    <p><a href="" title="关于千寻">关于{config.webtitle}</a><a href="" title="关于千寻">联系我们</a></p>
+  </div>
+</div>
+<%loop (string) prentid mainnavigationhassub%>
+<ul class="p_pop" id="menu_{prentid}_menu" style="display: none">
+<%loop subnav subnavigation%>
+<%set (bool) {isoutput} = false%>
+  <%if {subnav[parentid]}=={prentid}%>
+		<%if {subnav[level]}=="0"%>
+		<%set {isoutput}=true%>
+		<%else%>
+		<%if {subnav[level]}=="1" && {userid}!=-1%>
+			<%set {isoutput}=true%>
+		<%else%>
+			<%set (bool) {leveluseradmindi}=true%>
+			<%set {leveluseradmindi} = ({useradminid}==3 || {useradminid}==1 || {useradminid}==2)%>
+			<%if {subnav[level]}=="2" &&  {leveluseradmindi}%>
+				  <%set {isoutput}=true%>
+			<%/if%>
+			<%if {subnav[level]}=="3" && {useradminid}==1%>
+				  <%set {isoutput}=true%>
+			<%/if%>
+		<%/if%>
+		<%/if%>
+<%/if%>
+<%if {isoutput}%>
+	<%if {subnav[id]}=="11" || {subnav[id]}=="12"%>
+	<%if {config.statstatus}==1%>
+	{subnav[nav]}
+        <%continue%>
+	<%else%>
+       	<%continue%>
+	<%/if%>
+    <%/if%>
+   <%if {subnav[id]}=="18"%>
+	<%if {config.oltimespan}>0%>
+    {subnav[nav]}
+	<%continue%>
+		<%else%>
+       	<%continue%>
+     <%/if%>
+    <%/if%>
+	<%if {subnav[id]}=="24"%>
+    <%if {config.enablespace}==1 %>
+    {subnav[nav]}
+ 	<%continue%>
+		<%else%>
+      	<%continue%>
+	<%/if%>
+    <%/if%>
+	<%if {subnav[id]}=="25"%>
+	<%if {config.enablealbum}==1 %>
+    {subnav[nav]}
+ 	<%continue%>
+		<%else%>
+      	<%continue%>
+	<%/if%>
+	<%/if%>
+    <%if {subnav[id]}=="26"%>
+	<%if {config.enablemall}>=1 %>
+    {subnav[nav]}
+   	<%continue%>
+		<%else%>
+       	<%continue%>
+	<%/if%>
+    <%/if%>
+    {subnav[nav]}
+<%/if%>
+<%/loop%>
+</ul>
+<%/loop%>

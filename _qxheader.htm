@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%if pagetitle=="首页"%>
+        <title>{config.forumtitle} {config.seotitle}</title>
+    <%else%>
+        <title>{pagetitle} - {config.forumtitle} {config.seotitle}</title>
+    <%/if%>
+    {meta}
+    <meta http-equiv="x-ua-compatible" content="ie=7" />
+    <link rel="icon" href="{forumurl}favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="{forumurl}favicon.ico" type="image/x-icon" />
+    <link href="templates/{templatepath}/style.css" type="text/css" rel="stylesheet" />
+    <script src="templates/{templatepath}/scripts/jquery.min.js"></script>
+    <script src="templates/{templatepath}/scripts/coin-slider.min2.js"></script>
+    <script src="templates/{templatepath}/scripts/jquery.tools.min.js"></script>
+    <script src="templates/{templatepath}/scripts/json2.min.js"></script>
+    <script src="javascript/common.js"></script>
+    <link rel="stylesheet" href="templates/{templatepath}/coin-slider-styles.css" type="text/css" />
+    <link rel="stylesheet" href="templates/{templatepath}/tab.css" type="text/css" />
+</head>
+<body>
+<div id="wrapper">
+    <div id="header">
+        <h1><a href="{forumpath}index.aspx" title="{config.forumtitle}"></a></h1>
+        <div id="user_function">
+          <p>
+          <%if {userid}==-1%>
+          <a href="{rooturl}login.aspx" target="_blank">登录</a>
+          <span class="pipe">|</span>
+          <a href="{rooturl}register.aspx" target="_blank">注册</a>
+          <span class="pipe">|</span>
+          <a href="{rooturl}register.aspx" target="_blank">帮助</a>
+          <%else%>
+					<span class="xg1">登录为</span><strong><a href="{forumpath}usercp.aspx" class="vwmy">{username}</a></strong><span class="pipe">|</span>
+                    <%set (string){linktitle} = ""%>
+                    <%set (string){showoverflow} = ""%>
+                    <%if {oluserinfo.newpms}>0%>
+                        <%if {oluserinfo.newpms}>=1000%>
+                            <%set {showoverflow} = "大于"%>
+                        <%/if%>
+                        <%set {linktitle} = "您有"+{showoverflow}+{oluserinfo.newpms}+"条新短消息"%>
+                    <%else%>
+                        <%set {linktitle} = "您没有新短消息"%>
+                    <%/if%>
+					<a id="pm_ntc" href="{forumpath}usercpinbox.aspx" title="{linktitle}">短消息
+                    <%if {oluserinfo.newpms}>0 && {oluserinfo.newpms}<=1000%>
+                                ({oluserinfo.newpms}<%if {oluserinfo.newpms}>=1000%>1000+<%/if%>)
+                    <%/if%></a>
+                    <span class="pipe">|</span>
+                    <%set {showoverflow} = ""%>
+                    <%if {oluserinfo.newnotices}>0%>
+                        <%if {oluserinfo.newnotices}>=1000%>
+                            <%set {showoverflow} = "大于"%>
+                        <%/if%>
+                        <%set {linktitle} = "您有"+{showoverflow}+{oluserinfo.newnotices}+"条新通知"%>
+                    <%else%>
+                        <%set {linktitle} = "您没有新通知"%>
+                    <%/if%>
+					<a href="{forumpath}usercpnotice.aspx?filter=all" title="{linktitle}">
+                        通知<%if {oluserinfo.newnotices}>0%>
+                                ({oluserinfo.newnotices}<%if {oluserinfo.newnotices}>=1000%>+<%/if%>)
+                            <%/if%>
+                    </a>
+				<%if {config.Regstatus}==2||{config.Regstatus}==3%>
+					<%if {userid}>0%>
+					<span class="pipe">|</span><a href="{forumpath}invite.aspx">邀请</a>
+					<%/if%>
+				<%/if%>
+					<%if {useradminid}==1%>
+					<span class="pipe">|</span><a href="{forumpath}admin/index.aspx" target="_blank">系统设置</a>
+					<%/if%>
+					<span class="pipe">|</span><a href="{forumpath}logout.aspx?userkey={userkey}">退出</a>
+				<%/if%>
+				</p>
+        </div>
+        <ul id="navigation">
+            {mainnavigation}
+        </ul>
+        <%if {usergroupinfo.allowsearch}>0%>
+        <%template _quicksearch%>
+        <%/if%>
+    </div>

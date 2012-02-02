@@ -1,38 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>千寻</title>
-<link href="templates/{templatepath}/style.css" type="text/css" rel="stylesheet" />
-<script src="templates/{templatepath}/scripts/jquery.min.js"></script>
-<script src="templates/{templatepath}/scripts/coin-slider.min2.js"></script>
-<script src="templates/{templatepath}/scripts/jquery.tools.min.js"></script>
-<script src="templates/{templatepath}/scripts/json2.min.js"></script>
-<link rel="stylesheet" href="templates/{templatepath}/coin-slider-styles.css" type="text/css" />
-<link rel="stylesheet" href="templates/{templatepath}/tab.css" type="text/css" />
-</head>
-
-<body>
-<div id="wrapper">
-    <div id="header">
-        <h1><a href="" title="千寻—旅行,社区,学子Ooaren.com"></a></h1>
-        <div id="user_function">登录 注册 帮助</div>
-        <ul id="navigation">
-            <li><a href="">首页</a></li>
-            <li><a href="">与你分享</a></li>
-            <li><a href="">自助约伴</a></li>
-            <li><a href="">社区活动</a></li>
-            <li><a href="">旅行专题</a></li>
-        </ul>
-        <form method="post" action="{forumpath}search.aspx" target="_blank" onsubmit="bind_keyword(this);" class="y">
-	        <input type="hidden" name="poster" />
-	        <input type="hidden" name="keyword" />
-	        <input type="hidden" name="type" value="" />
-	        <input id="keywordtype" type="hidden" name="keywordtype" value="0" />
-	        <input type="text" name="keywordf" value="输入搜索关键字" onblur="if(this.value=='')this.value=defaultValue" onclick="if(this.value==this.defaultValue)this.value = ''" onkeydown="if(this.value==this.defaultValue)this.value = ''" class="txt"/>
-	        <input name="searchsubmit" type="submit" value="搜索" class="btnsearch"/>
-        </form>
-    </div>
+﻿<%template _qxheader%>
     <div id="main">
         <div class="topleftcorner"></div>
         <div class="topcorner"></div>
@@ -241,7 +207,7 @@
 						<%if {topic.attachment}==1%>
 							<img src="{imagedir}/attachment.gif" alt="附件"/>
 						<%else if {topic.attachment}==2%>
-							[图]
+							<img src="{imagedir}/image.gif" alt="图片" title="图文">
 						<%/if%>						
 						<%if {topic.special}==2%>
 							- [悬赏 {bonusextcreditsinfo.name} <span class="bold">{topic.price}</span> {bonusextcreditsinfo.unit}] 
@@ -317,11 +283,11 @@
         <div class="bottomcorner"></div>
     </div>
     <script>
-        $(document).ready(function () {
-            $("#threadlist tr:odd").css("background-color","#E0EFE5");
+        jQuery(document).ready(function () {
+            jQuery("#threadlist tr:odd").css("background","url(templates/test/images/tablebg.gif) #f5fafa");
+            //jQuery("#threadlist tr:odd td").css("border-bottom","1px solid #dedede");
         });
     </script>
-    <div id="footer"><a href="">关于千寻</a><a href="#">联系我们</a></div>
+    <%template _qxcopyright%>
 </div>
-</body>
-</html>
+<%template _qxfooter%>

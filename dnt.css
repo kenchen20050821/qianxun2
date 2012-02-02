@@ -37,7 +37,7 @@ hr{display:block;clear:both;}
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Layout & Block Style ~~~~ */
 #hd .wrap{padding:10px 0 0;}
 .head{min-height:70px;z-index:3;}
-	.head h2{float:left;padding:0 20px 8px 0;margin-top:20px;}
+	.head h2{float:left;padding:0 20px 8px 0;margin-top:30px;}
 	.fastlg{overflow:hidden;padding-top:14px;}
 		#ls_more {background:#FEFEFE;border:1px solid #DDD;line-height:1.5em;overflow:hidden;padding:10px;width:160px;z-index:300;}
 			#ls_more h3{overflow:hidden;margin-bottom:10px;}
@@ -46,7 +46,7 @@ hr{display:block;clear:both;}
 		#um{float:right;padding-top:10px;width:60%;text-align:right;line-height:2.3em;}
 			.avt img {background:#FFFFFF;border-color:#F2F2F2 #CDCDCD #CDCDCD #F2F2F2;border-style:solid;border-width:1px;height:48px;padding:2px;width:48px;margin-left:10px;}
 			#um,#um a{color:#444;}
-			.vwmy{background:url(images/user_online.gif) no-repeat 0 2px;padding-left:16px;margin-right:4px;}
+			.vwmy{padding-left:6px;margin-right:4px;}
 		#um .p_pop a{line-height:18px;text-align:left;}
 			#um .p_pop a:hover{color:#FFF;}
 		.g_up{position:absolute;width:130px;margin-top:4px;}
@@ -54,14 +54,15 @@ hr{display:block;clear:both;}
 			.crly{padding:4px 8px;border:1px solid #F26C4F;background:#FFF4DD;line-height:1.6em;}
 			.g_up .y{margin-top:5px;}
 /*#menubar,#mymenu,.pageinfo,#nav{background-image:url(images/mu.png);}*/
-#menubar{overflow:hidden;height:33px;}
+#menubar{overflow:hidden;height:33px;margin:-18px 0 0 260px;}
+#menubar form{margin-top:8px;}
   #menu{float:left;}/*modified*/
 	#menu li{display:inline;height:33px;line-height:33px;}
 		#menu li a{float:left;color:#000;padding:0 20px;white-space:nowrap;text-decoration:none;font-weight:700;font-size:14px;}
 		#menu li a:hover,#menu li a.current{color:#007ED5;}
 	#mymenu{background-repeat:no-repeat;background-position:0 -99px;display:inline;float:right !important;height:26px;line-height:26px;margin:3px 10px 0 0;padding:0 0 0 10px !important;width:85px;color:#FFF;text-decoration:none;}
 .s_type{padding:4px;padding-right:14px;}
-.btnsearch{border:0;background:url(images/icon_search.gif) no-repeat 0 0;width:21px;height:21px;}
+.btnsearch{border:0;width:50px;height:21px;background:#8e909c;color:#fff;margin-top:-1px;}
 	*html #quicksearch{display:block;float:left;height:18px;line-height:18px;padding-top:4px;}
 .pageinfo{overflow:hidden;margin-bottom:10px;background-color:#FFF;background-repeat:repeat-x;background-position:0 -125px;height:37px;line-height:37px;}
 	#nav{background-repeat:no-repeat;background-position:0 -162px;border-color:#CCC;border-style:solid;border-width:0 1px;padding:0 8px 0 30px;}
@@ -131,7 +132,7 @@ hr{display:block;clear:both;}
 	.cpcontent .error_msg{background:url(images/error.gif) no-repeat 4em 50%;}
 .onerror {clear:both;padding:2px 2px 2px 22px;background:url(images/check_error.gif) no-repeat 2px 2px;}
 /* ~~~End finish~~~~~~~~~~~~ */
-.pages_btns{clear:both;overflow:hidden;margin-bottom:10px;}
+.pages_btns{clear:both;overflow:hidden;margin:40px 0 10px 0;}
 .pages_btns #newspecial{float:left;margin-right:6px;}
 .pages{float:right;margin-top:5px;}
 	.pages a,.pages span,.pages kbd,.pages em{float:left;overflow:hidden;padding:0 8px;margin-left:4px;height:24px;border:1px solid;line-height:24px;}
@@ -647,6 +648,7 @@ hr{display:block;clear:both;}
 	.formtable td{padding:5px 2px;}
 	.formtable .sep_space th{height:40px;}
 .txt,.txtarea,.px{background:#FFF;border-color:#707070 #CECECE #CECECE #707070;border-style:solid;border-width:1px;color:#666666;font-size:14px;padding:2px 4px;line-height:18px;}
+.searchtxt{border:1px solid #8e909c;}
 	.px{height:20px;}
 .fastlg_fm .txt:focus {-moz-box-shadow:0 0 5px #6FB1DF;border-color:#6FB1DF;color:#333333;}
 .postpx{width:25em;height:20px;}

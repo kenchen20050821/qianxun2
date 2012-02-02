@@ -39,3 +39,10 @@
 #postinfo{background:#f7fafd;border:1px solid #D3E2EE;border-radius:4px;height:20px;padding:6px 12px;margin-bottom:12px;}
 .floorreply{background:url(../images/comments_add.gif) 50% no-repeat;width:16px;height:16px;border:0;}
 .popuserinfo{margin:12px 0 0 -14px;padding-left:12px;border:1px solid #C5D9E8;}
+.pages_btns .forums_name span{font:14px;color:#336699;font-weight:bold;}
+.pages_btns .forums_name span a{font-size:14px;color:#336699;font-weight:bold;}
+.pages_btns .forums_name{float:left;}
+.pages_btns .pages{float:right;}
+
+#footlinks{float:none;}
+#footlinks p a{margin-left:12px;}

@@ -124,7 +124,9 @@ function modclick(obj, pid)
 	{Caches.GetForumListMenuDivCache(usergroupid,userid,config.Extname)}
 <%/if%>
     <div class="pages_btns cl">
-      <span>&raquo; {ShowForumAspxRewrite(forum.Pathlist.Trim(),forumid,forumpageid)} </span>
+      <div class="forums_name">
+        <span>&raquo; {ShowForumAspxRewrite(forum.Pathlist.Trim(),forumid,forumpageid)} </span>
+      </div>
 	    <div class="pages">
 		    <%if {pagecount}!=1%>
 		    {pagenumbers}
@@ -882,6 +884,5 @@ function modclick(obj, pid)
 <%else%>
 <%template _ajaxquickreply%>
 <%/if%>
-<%template _copyright%>
-<%template _adlist%>
-<%template _footer%>
+<%template _qxcopyright%>
+<%template _qxfooter%>

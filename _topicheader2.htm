@@ -116,7 +116,7 @@
 			<%else%>
 			<div id="um">
 				<p>
-					<strong><a href="{forumpath}userinfo.aspx?userid={userid}" class="vwmy">{username}</a></strong><span class="xg1">在线</span><span class="pipe">|</span>
+					<span class="xg1">登录为</span><strong><a href="{forumpath}usercp.aspx" class="vwmy">{username}</a></strong><span class="pipe">|</span>
                     <%set (string){linktitle} = ""%>
                     <%set (string){showoverflow} = ""%>
                     <%if {oluserinfo.newpms}>0%>
@@ -146,8 +146,6 @@
                                 ({oluserinfo.newnotices}<%if {oluserinfo.newnotices}>=1000%>+<%/if%>)
                             <%/if%>
                     </a>
-                    <span class="pipe">|</span>
-					<a id="usercenter" class="drop" onmouseover="showMenu(this.id);" href="{forumpath}usercp.aspx">用户中心</a>
 				<%if {config.Regstatus}==2||{config.Regstatus}==3%>
 					<%if {userid}>0%>
 					<span class="pipe">|</span><a href="{forumpath}invite.aspx">邀请</a>
